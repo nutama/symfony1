@@ -878,7 +878,7 @@ class sfWebRequest extends sfRequest
 
     if (isset($_COOKIE[$name]))
     {
-      $retval = get_magic_quotes_gpc() ? sfToolkit::stripslashesDeep($_COOKIE[$name]) : $_COOKIE[$name];
+      $retval = $_COOKIE[$name];
     }
 
     return $retval;
@@ -1162,7 +1162,7 @@ public function splitHttpAcceptHeader($header)
   protected function loadParameters()
   {
     // GET parameters
-    $this->getParameters = get_magic_quotes_gpc() ? sfToolkit::stripslashesDeep($_GET) : $_GET;
+    $this->getParameters = $_GET;
     $this->parameterHolder->add($this->getParameters);
 
     // additional parameters
@@ -1170,7 +1170,7 @@ public function splitHttpAcceptHeader($header)
     $this->parameterHolder->add($this->requestParameters);
 
     // POST parameters
-    $this->postParameters = get_magic_quotes_gpc() ? sfToolkit::stripslashesDeep($_POST) : $_POST;
+    $this->postParameters = $_POST;
     $this->parameterHolder->add($this->postParameters);
 
     // move symfony parameters to attributes (parameters prefixed with _sf_)

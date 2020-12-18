@@ -1388,11 +1388,11 @@ if (Propel::isInit()) {
 			$i = 0;
 			foreach($table->getPrimaryKey() as $col) {
 				$script .= "
-				\$c{$i} = \$criteria->getNewCriterion(".$this->getPeerClassname($col).", \$pk[$i], Criteria::EQUAL);";
+				\$c[$i] = \$criteria->getNewCriterion(".$this->getPeerClassname($col).", \$pk[$i], Criteria::EQUAL);";
 				$j = $i - 1;
 				if ($i > 0) {
 					$script .= "
-				\$c{$j}->addAnd(\$c{$i});";
+				\$c[$j]->addAnd(\$c[$i]);";
 				} /* if $i > 0 */
 				$i++;
 			} /* foreach */
