@@ -11,7 +11,7 @@ class sfWebRequestTest extends TestCase
      */
     private $request;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $event_dispatcher = new sfEventDispatcher();
         $this->request = new sfWebRequest($event_dispatcher);
