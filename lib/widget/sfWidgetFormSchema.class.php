@@ -502,6 +502,7 @@ class sfWidgetFormSchema extends sfWidgetForm implements ArrayAccess
    *
    * @return bool true if the schema has a field with the given name, false otherwise
    */
+  #[\ReturnTypeWillChange]
   public function offsetExists($name)
   {
     return isset($this->fields[$name]);
@@ -514,6 +515,7 @@ class sfWidgetFormSchema extends sfWidgetForm implements ArrayAccess
    *
    * @return sfWidget The sfWidget instance associated with the given name, null if it does not exist
    */
+  #[\ReturnTypeWillChange]
   public function offsetGet($name)
   {
     return isset($this->fields[$name]) ? $this->fields[$name] : null;
@@ -525,6 +527,7 @@ class sfWidgetFormSchema extends sfWidgetForm implements ArrayAccess
    * @param string   $name    The field name
    * @param sfWidget $widget  An sfWidget instance
    */
+  #[\ReturnTypeWillChange]
   public function offsetSet($name, $widget)
   {
     if (!$widget instanceof sfWidget)
@@ -551,6 +554,7 @@ class sfWidgetFormSchema extends sfWidgetForm implements ArrayAccess
    *
    * @param string
    */
+  #[\ReturnTypeWillChange]
   public function offsetUnset($name)
   {
     unset($this->fields[$name]);
